@@ -1,0 +1,33 @@
+<div class="login-container">
+    <div class="login-content">
+        <mat-toolbar class="login-toolbar" color="primary">Login</mat-toolbar>
+        <mat-card>
+            <form [formGroup]="loginForm" novalidate>
+                <div>
+                    <mat-form-field>
+                        <mat-icon matPrefix>Email : </mat-icon>
+                        <input type="text" matInput formControlName="email">
+                    </mat-form-field>
+                    <div *ngIf="loginForm.get('email').errors">
+                        <span *ngIf="loginForm.get('email').touched && loginForm.get('email').errors['pattern']">Please
+                            Enter Email</span>
+                        <span *ngIf="loginForm.get('email').touched && loginForm.get('email').errors['required']">This
+                            field is required</span>
+                    </div>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-icon matPrefix>Password : </mat-icon>
+                        <input type="password" matInput formControlName="password">
+                    </mat-form-field>
+                    <div *ngIf="loginForm.get('password').errors">
+                        <span *ngIf="loginForm.get('email').touched && loginForm.get('email').errors['required']">This
+                            field is required</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" (click)="login()" mat-raised-button color="primary">Login</button>
+            </form>
+        </mat-card>
+    </div>
+</div>
